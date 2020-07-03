@@ -70,6 +70,8 @@ const reduxRuntimePlugin: Runtime.Plugin = (
     fn: (ctx: ReduxAppContext) => {
       const { store } = ctx;
 
+      delete ctx.store;
+
       return { redux: store.getState() };
     }
   });
