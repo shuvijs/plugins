@@ -1,6 +1,6 @@
 {
   "name": "@shuvi/plugin-redux",
-  "version": "0.0.1-beta.42",
+  "version": "0.0.1-beta.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shuvijs/plugins.git",
@@ -13,9 +13,9 @@
   },
   "main": "./lib/index.js",
   "peerDependencies": {
-    "shuvi": "^0.0.1-beta.42",
     "react": "^16.8.3",
-    "redux": "^2.0.0 || ^3.0.0 || ^4.0.0-0"
+    "redux": "^2.0.0 || ^3.0.0 || ^4.0.0-0",
+    "shuvi": "^0.0.1-beta.42"
   },
   "devDependencies": {
     "@shuvi/types": "^0.0.1-beta.42",
