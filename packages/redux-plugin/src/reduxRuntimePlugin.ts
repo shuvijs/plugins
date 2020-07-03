@@ -1,17 +1,25 @@
 import { Runtime } from '@shuvi/types';
-import { CreateStore, InitStore } from './types';
+import { CreateStore, InitStore, ReduxAppContext } from './types';
+import { withRedux } from './withRedux';
 
+interface ReduxPluginOptions {
+  createStore?: CreateStore;
+}
 let currentStore: any = null;
 export const getCurrentStore = () => currentStore;
 const isServer = typeof window === 'undefined';
 
-// @ts-ignore Plugin type error
-const reduxRuntimePlugin: Runtime.Plugin = (tap, createStore?: CreateStore) => {
-  if (!createStore) {
+const reduxRuntimePlugin: Runtime.Plugin = (
+  tap,
+  options: ReduxPluginOptions = {}
+) => {
+  if (!options?.createStore) {
     throw new Error(
       'Please provide a createStore option to your "redux" in `src/plugin`'
     );
   }
+
+  const { createStore } = options;
 
   const initStore: InitStore = ({ initialState, ctx }) => {
     const createStoreInstance = () =>
@@ -33,7 +41,7 @@ const reduxRuntimePlugin: Runtime.Plugin = (tap, createStore?: CreateStore) => {
   };
 
   tap('createAppContext', {
-    name: 'inject-redux instance',
+    name: 'redux:initReduxStore',
     fn: (ctx: Runtime.ISeverAppContext) => {
       // instantiate store
       if (!ctx.store) {
@@ -49,9 +57,17 @@ const reduxRuntimePlugin: Runtime.Plugin = (tap, createStore?: CreateStore) => {
       return ctx;
     }
   });
+
+  tap('getAppComponent', {
+    name: 'redux:wrapWithRedux',
+    fn: (App: any, appContext: ReduxAppContext) => {
+      return withRedux(App, appContext);
+    }
+  });
+
   tap('server:getPageData', {
     name: 'redux:setInitialState',
-    fn: (ctx: Runtime.ISeverAppContext) => {
+    fn: (ctx: ReduxAppContext) => {
       const { store } = ctx;
 
       return { redux: store.getState() };

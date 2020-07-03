@@ -16,8 +16,5 @@ export type InitStore = <S = any, A extends Action = AnyAction>(params: {
 }) => Store<S, A>;
 
 export type ReduxAppContext = {
-  redux: {
-    initialState: any;
-    store: Store;
-  };
+  store: Store<any, any>;
 };

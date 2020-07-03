@@ -1,28 +1,18 @@
 import React from 'react';
-import { Store } from 'redux';
 import { Provider } from 'react-redux';
-import { getCurrentStore } from './reduxRuntimePlugin';
+import { ReduxAppContext } from './types';
 
-export const withRedux = (App: any) => {
-  let store: Store | null = null;
-  const WrapperApp = () => {
+export const withRedux = (App: any, appContext: ReduxAppContext) => {
+  const ReduxAppWrapper = () => {
     return (
-      <Provider store={store || getCurrentStore()}>
+      <Provider store={appContext.store}>
         <App />
       </Provider>
     );
   };
 
-  WrapperApp.getInitialProps = async (ctx: any) => {
-    if (ctx.isServer) {
-      store = ctx.appContext.store;
-    }
-    if (App.getInitialProps) {
-      return App.getInitialProps(ctx);
-    }
-    await ctx.fetchInitialProps();
-    return {};
-  };
+  ReduxAppWrapper.getInitialProps = App.getInitialProps;
+  ReduxAppWrapper.displayName = 'ReduxAppWrapper';
 
-  return WrapperApp;
+  return ReduxAppWrapper;
 };
