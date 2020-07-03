@@ -3,10 +3,10 @@ import { Provider } from 'react-redux';
 import { ReduxAppContext } from './types';
 
 export const withRedux = (App: any, appContext: ReduxAppContext) => {
-  const ReduxAppWrapper = () => {
+  const ReduxAppWrapper = (appProps: any) => {
     return (
       <Provider store={appContext.store}>
-        <App />
+        <App {...appProps} />
       </Provider>
     );
   };
