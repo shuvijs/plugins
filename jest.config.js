@@ -22,15 +22,13 @@ module.exports = {
     }
   },
 
-  setupFilesAfterEnv: ['<rootDir>/test/setup.ts'],
-
   testEnvironment: 'node',
 
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
 
   preset: 'ts-jest/presets/js-with-ts',
 
-  roots: ['<rootDir>/packages', '<rootDir>/test'],
+  roots: ['<rootDir>/packages'],
 
   watchPathIgnorePatterns: ['/fixtures'],
 

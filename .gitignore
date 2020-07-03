@@ -18,6 +18,3 @@ node_modules
 # build output
 /lib/
 packages/*/lib/
-
-test/fixtures/**/dist/
-test/fixtures/**/.shuvi/
