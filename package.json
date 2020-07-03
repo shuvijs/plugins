@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "lerna run dev --stream --parallel",
     "build": "lerna run build --stream",
-    "test": "jest"
+    "test": "echo 'todo test'"
   },
   "husky": {
     "hooks": {
