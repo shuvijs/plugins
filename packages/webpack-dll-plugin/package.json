@@ -1,0 +1,33 @@
+{
+  "name": "@shuvi/plugin-webpack-dll",
+  "version": "0.0.1-beta.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuvijs/plugins.git",
+    "directory": "packages/redux-plugin"
+  },
+  "author": "zhengyutay",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 12.0.0"
+  },
+  "main": "./lib/index.js",
+  "peerDependencies": {
+    "shuvi": "^0.0.1-beta.42"
+  },
+  "devDependencies": {
+    "@shuvi/types": "^0.0.1-beta.42"
+  },
+  "scripts": {
+    "dev": "tsc -p tsconfig.build.json -w",
+    "prebuild": "rimraf lib",
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "gitHead": "91b0b8adeb1a802d5f5e6c4c4777507c7ccc07f9",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "autodll-webpack-plugin": "0.4.2"
+  }
+}
