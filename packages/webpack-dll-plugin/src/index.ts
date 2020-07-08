@@ -1,12 +1,13 @@
 import { IApi, APIHooks } from '@shuvi/types';
-import path from 'path';
 import { BUNDLER_TARGET_CLIENT } from 'shuvi';
+import { Compiler } from 'webpack';
 
 const DEFAULT_VENORS = [
   'react',
   'react-dom',
   'react-router',
   'react-router-dom',
+  '@shuvi/runtime-react',
   '@shuvi/runtime-core'
 ];
 
@@ -22,22 +23,13 @@ export default class WebpackDllPlugin {
   }
 
   apply(api: IApi) {
-    const { buildDir, rootDir } = api.paths;
+    const { rootDir } = api.paths;
     const { vendors = [] } = this.options;
-
-    const autodllCachePath = path.resolve(
-      path.join(buildDir, 'cache', 'autodll-webpack-plugin')
-    );
-
-    const autoDllWebpackPluginPaths = require('autodll-webpack-plugin/lib/paths');
-    autoDllWebpackPluginPaths.cacheDir = autodllCachePath;
-    autoDllWebpackPluginPaths.getManifestPath = (hash: string) => (
-      bundleName: string
-    ) => path.resolve(autodllCachePath, hash, `${bundleName}.manifest.json`);
+    let dllFile: string;
 
     api.tap<APIHooks.IHookBundlerConfig>('bundler:configTarget', {
       name: 'webpackDllPlugin',
-      fn: (chain, { name, mode }) => {
+      fn: (chain, { name, mode, webpack }) => {
         if (mode === 'development') {
           if (name === BUNDLER_TARGET_CLIENT) {
             const resolveConfig = chain.toConfig().resolve!;
@@ -48,7 +40,6 @@ export default class WebpackDllPlugin {
                 {
                   filename: '[name]_[hash].js',
                   path: './static/dll',
-                  debug: true,
                   inject: false,
                   context: rootDir,
                   entry: {
@@ -61,9 +52,41 @@ export default class WebpackDllPlugin {
                   }
                 }
               ]);
+            class GetDllFilePlugin {
+              apply(compiler: Compiler) {
+                compiler.hooks.emit.tapAsync(
+                  'GetDllFilePlugin',
+                  (compilation, callback) => {
+                    dllFile =
+                      api.config.publicPath + // /_shuvi/[dll]
+                      Object.keys(compilation.assets).find((asset: string) =>
+                        /^static\/dll\//.test(asset)
+                      )!;
+                    callback();
+                  }
+                );
+              }
+            }
+            chain
+              .plugin('getDllFile')
+              .after('webpackDllPlugin')
+              .use(GetDllFilePlugin);
           }
         }
         return chain;
+      }
+    });
+
+    api.tap<APIHooks.IHookModifyHtml>('modifyHtml', {
+      name: 'injectDllScript',
+      fn: docProps => {
+        docProps.scriptTags.unshift({
+          tagName: 'script',
+          attrs: {
+            src: dllFile
+          }
+        });
+        return docProps;
       }
     });
   }
