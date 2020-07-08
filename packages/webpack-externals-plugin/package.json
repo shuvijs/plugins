@@ -1,0 +1,33 @@
+{
+  "name": "@shuvi/plugin-webpack-externals",
+  "version": "0.0.1-beta.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuvijs/plugins.git",
+    "directory": "packages/redux-plugin"
+  },
+  "author": "zhengyutay",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 12.0.0"
+  },
+  "main": "./lib/index.js",
+  "peerDependencies": {
+    "shuvi": "^0.0.1-beta.47"
+  },
+  "devDependencies": {
+    "@shuvi/types": "^0.0.1-beta.47",
+    "@types/webpack-node-externals": "^1.7.1"
+  },
+  "scripts": {
+    "dev": "tsc -p tsconfig.build.json -w",
+    "prebuild": "rimraf lib",
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "webpack-node-externals": "1.7.2"
+  }
+}
