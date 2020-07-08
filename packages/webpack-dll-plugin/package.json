@@ -1,5 +1,5 @@
 {
-  "name": "@shuvi/plugin-redux",
+  "name": "@shuvi/plugin-webpack-dll",
   "version": "0.0.1-beta.3",
   "repository": {
     "type": "git",
@@ -13,13 +13,10 @@
   },
   "main": "./lib/index.js",
   "peerDependencies": {
-    "react": "^16.8.3",
-    "redux": "^2.0.0 || ^3.0.0 || ^4.0.0-0",
-    "shuvi": "^0.0.1-beta.42"
+    "shuvi": "^0.0.1-beta.47"
   },
   "devDependencies": {
-    "@shuvi/types": "^0.0.1-beta.42",
-    "@types/react-redux": "^7.1.9"
+    "@shuvi/types": "^0.0.1-beta.42"
   },
   "scripts": {
     "dev": "tsc -p tsconfig.build.json -w",
@@ -28,5 +25,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "autodll-webpack-plugin": "0.4.2"
   }
 }
