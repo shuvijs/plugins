@@ -2164,6 +2164,24 @@
     mobx-react "6.1.8"
     react "16.13.0"
 
+"@shuvi/core@^0.0.1-beta.47":
+  version "0.0.1-beta.47"
+  resolved "https://registry.npmjs.org/@shuvi/core/-/core-0.0.1-beta.47.tgz#5ff7352bd55559755ef8d9ab2986f59f5a93ee96"
+  integrity sha512-G9PulFZjY/oiJ7s5G7NtcrCDd4ttVY3sil1yQ0lEIBNNTS5BC/siI6HGj8SVMyudlhY4MqZ876szmgAFdnI4oQ==
+  dependencies:
+    "@babel/code-frame" "7.10.1"
+    "@babel/generator" "7.10.1"
+    "@babel/parser" "7.10.1"
+    "@babel/traverse" "7.10.1"
+    "@shuvi/react-fs" "^0.0.1-beta.47"
+    "@shuvi/shared" "^0.0.1-beta.47"
+    "@shuvi/utils" "^0.0.1-beta.47"
+    ejs "3.0.1"
+    fs-extra "8.1.0"
+    mobx "5.15.4"
+    mobx-react "6.1.8"
+    react "16.13.0"
+
 "@shuvi/hooks@0.0.1-beta.38":
   version "0.0.1-beta.38"
   resolved "https://registry.npmjs.org/@shuvi/hooks/-/hooks-0.0.1-beta.38.tgz#48e2fcb7a4227118236496adc0c2f5045fda8565"
@@ -2178,21 +2196,30 @@
     react-reconciler "0.24.0"
     react-test-renderer "16.13.0"
 
-"@shuvi/runtime-core@^0.0.1-beta.46":
-  version "0.0.1-beta.46"
-  resolved "https://registry.npmjs.org/@shuvi/runtime-core/-/runtime-core-0.0.1-beta.46.tgz#602133035e7233272d1b04349195624b8ffb0df3"
-  integrity sha512-Ic+fKFlZWoDw87C7ws4Gc2NmApxZccyn35CsTHgkcEJe5evHyMqqOJz6ppNHP7JRWZa1v7xdvfNGpytUu+FwHQ==
+"@shuvi/react-fs@^0.0.1-beta.47":
+  version "0.0.1-beta.47"
+  resolved "https://registry.npmjs.org/@shuvi/react-fs/-/react-fs-0.0.1-beta.47.tgz#808d193441507ce4a5ee29f8aa3dee2fefd3ce34"
+  integrity sha512-CwZ8DnTWX56tkficvTsklpc0q7QElfst0WHPgbU2eXTMgEyfEgu/wmC0PLYRPdcYmDt7YnRO+7U1MVpTskPIgw==
   dependencies:
-    "@shuvi/shared" "^0.0.1-beta.46"
-    "@shuvi/toolpack" "^0.0.1-beta.46"
-    "@shuvi/types" "^0.0.1-beta.46"
+    fs-extra "8.1.0"
+    react-reconciler "0.24.0"
+    react-test-renderer "16.13.0"
 
-"@shuvi/runtime-react@^0.0.1-beta.46":
-  version "0.0.1-beta.46"
-  resolved "https://registry.npmjs.org/@shuvi/runtime-react/-/runtime-react-0.0.1-beta.46.tgz#9b59efcae2b422c27f0350257bddcbf72d75e4c4"
-  integrity sha512-+8L8fnScs8kQKh1fw8CuJPWJ3e7n2dZXhLADFY3zaeE6mbvjal+dFvfXgciCmPPkiOh5DFI422UoKxUf3+n1Yg==
+"@shuvi/runtime-core@^0.0.1-beta.47":
+  version "0.0.1-beta.47"
+  resolved "https://registry.npmjs.org/@shuvi/runtime-core/-/runtime-core-0.0.1-beta.47.tgz#20e99cfd8d19c5d0846b9b6615f7e415cab8c92a"
+  integrity sha512-e0oKTuBBxSZD2pbxJXRMZV898gAA5ATXeAn+oUKaDq1Pid5UJawfo7+fx5XmO2z/dS227/BaYoyiNQ7XtpCYXg==
   dependencies:
-    "@shuvi/utils" "^0.0.1-beta.46"
+    "@shuvi/shared" "^0.0.1-beta.47"
+    "@shuvi/toolpack" "^0.0.1-beta.47"
+    "@shuvi/types" "^0.0.1-beta.47"
+
+"@shuvi/runtime-react@^0.0.1-beta.47":
+  version "0.0.1-beta.47"
+  resolved "https://registry.npmjs.org/@shuvi/runtime-react/-/runtime-react-0.0.1-beta.47.tgz#94881adc1bde786ca53adfe8edffc50497d8fb5b"
+  integrity sha512-uUJlO/1RqzHJoxMmhkHAPszlvbHWMC3m0q9kIZLcT0NiyZAgYOhz8nJoEgIaX+WaSf8Xcsmh0nXKj5coTpWhNg==
+  dependencies:
+    "@shuvi/utils" "^0.0.1-beta.47"
     enhanced-resolve "5.0.0-beta.4"
     history-with-query "^4.10.3"
     react "16.13.0"
@@ -2207,10 +2234,15 @@
   resolved "https://registry.npmjs.org/@shuvi/shared/-/shared-0.0.1-beta.46.tgz#e3c71ed585265b025731e03d4453b5963df63866"
   integrity sha512-GI2nu3oZpftYRo1Gwync/NAWCPGYrYr2N+k3GaHQWF+0M6XPvzO5aai76UER94L7V92wv2onEfL6tTPhrHMiAw==
 
-"@shuvi/toolpack@^0.0.1-beta.46":
-  version "0.0.1-beta.46"
-  resolved "https://registry.npmjs.org/@shuvi/toolpack/-/toolpack-0.0.1-beta.46.tgz#e3a846dd3cb7f1bc4505967ee69d7650ec71690b"
-  integrity sha512-KlT7XjjTTRJXZXPaDtNLoqblVlFlZZgBmS3REpINvjJgRS50aPMU6P8ZzigtkJ9ccSUKZjnXXKTb62g8ZMK2Gg==
+"@shuvi/shared@^0.0.1-beta.47":
+  version "0.0.1-beta.47"
+  resolved "https://registry.npmjs.org/@shuvi/shared/-/shared-0.0.1-beta.47.tgz#02e6928b5e578c097c50303fb44b49b972272014"
+  integrity sha512-yEHiOM768NjzeuDnH49pAW2+JX+KZRSOTc4O+ULkJu8MLXhh6Z/lcIonHL4d7KpYS+G+3XBylXaA/XpbwbsoJg==
+
+"@shuvi/toolpack@^0.0.1-beta.47":
+  version "0.0.1-beta.47"
+  resolved "https://registry.npmjs.org/@shuvi/toolpack/-/toolpack-0.0.1-beta.47.tgz#307af348e357ff1f3e082d97279ebcabbef7bf90"
+  integrity sha512-k0Fybc1Fni+M1u+QKKcMqCpl1sD2dxbZMzw+N+vH9+sUEcUbt+Iks4UROfVq+gZNtXGdS86kiagWxjrt5zhgBg==
   dependencies:
     "@babel/core" "7.10.1"
     "@babel/plugin-proposal-class-properties" "7.10.1"
@@ -2225,9 +2257,9 @@
     "@babel/preset-react" "7.10.1"
     "@babel/preset-typescript" "7.10.1"
     "@babel/runtime" "7.10.1"
-    "@shuvi/shared" "^0.0.1-beta.46"
-    "@shuvi/types" "^0.0.1-beta.46"
-    "@shuvi/utils" "^0.0.1-beta.46"
+    "@shuvi/shared" "^0.0.1-beta.47"
+    "@shuvi/types" "^0.0.1-beta.47"
+    "@shuvi/utils" "^0.0.1-beta.47"
     babel-loader "8.1.0"
     babel-plugin-syntax-jsx "6.18.0"
     babel-plugin-transform-define "2.0.0"
@@ -2250,7 +2282,7 @@
     webpack-chain "6.4.0"
     webpack-sources "1.4.3"
 
-"@shuvi/types@^0.0.1-beta.42", "@shuvi/types@^0.0.1-beta.46":
+"@shuvi/types@^0.0.1-beta.42":
   version "0.0.1-beta.46"
   resolved "https://registry.npmjs.org/@shuvi/types/-/types-0.0.1-beta.46.tgz#51ce8818ee97fb627f42f57d1d5108852b0c76c0"
   integrity sha512-BlCcwOqOXT0+g4ZT/mFGTd3hXcJa9W6WEKYqAmnrcN4Ti965/yINbLLFGTmiLCUEQw+DlJgBNEQXTS/U2F3H1g==
@@ -2261,10 +2293,33 @@
     http-proxy-middleware "1.0.3"
     webpack-chain "6.4.0"
 
+"@shuvi/types@^0.0.1-beta.47":
+  version "0.0.1-beta.47"
+  resolved "https://registry.npmjs.org/@shuvi/types/-/types-0.0.1-beta.47.tgz#5f0e467ac38c40a79ec686a45ebcb81971e6d265"
+  integrity sha512-E3yGr598QUVUfLFc+yaV1hcQ4GAJinCXMbep7Uz1xvh9b0MyWbC0y3rpvE2S1j55OBUCKlqwfKXMP5+tVyF+Ug==
+  dependencies:
+    "@shuvi/core" "^0.0.1-beta.47"
+    "@shuvi/hooks" "0.0.1-beta.38"
+    "@types/webpack" "4.41.0"
+    http-proxy-middleware "1.0.3"
+    webpack-chain "6.4.0"
+
 "@shuvi/utils@^0.0.1-beta.46":
   version "0.0.1-beta.46"
   resolved "https://registry.npmjs.org/@shuvi/utils/-/utils-0.0.1-beta.46.tgz#a1f434515485f2148c0d63f301409fd1f6d513ed"
   integrity sha512-E6sVcH95GVRmeKqovOWm1OJc2/jKpykDYcxv121tFVBOHdkToLuCC5MIovchwoH+25x3AHd8BNbwl35AoqO9YQ==
+  dependencies:
+    async-sema "3.0.0"
+    chalk "4.0.0"
+    debug "4.1.1"
+    resolve "1.15.1"
+    tiny-invariant "1.1.0"
+    watchpack "2.0.0-beta.13"
+
+"@shuvi/utils@^0.0.1-beta.47":
+  version "0.0.1-beta.47"
+  resolved "https://registry.npmjs.org/@shuvi/utils/-/utils-0.0.1-beta.47.tgz#5f08d32ffe54ce05316db427d8de67f948f43947"
+  integrity sha512-/tGl2F5Xgd+iS2jZwCnRi2mM0gBeOZcVynrqPwB4PWDdY+0kC0vUueB0lRy3BJOaUTBCrkDwFjTiIGaxEySDRw==
   dependencies:
     async-sema "3.0.0"
     chalk "4.0.0"
@@ -9727,19 +9782,19 @@ shellwords@^0.1.1:
   resolved "https://registry.npmjs.org/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
 
-shuvi@0.0.1-beta.46:
-  version "0.0.1-beta.46"
-  resolved "https://registry.npmjs.org/shuvi/-/shuvi-0.0.1-beta.46.tgz#db69ba06e1b04d7679671982dd7fbff98da71a34"
-  integrity sha512-uofkLIIbsgZa6SJ58QfaA9G4kw2jo5+6XVQyofw0ecnKKKWGWGszFx5Oq0n4fnn1Bgi5Zv90bgnPiD+xLvw7Sw==
+shuvi@0.0.1-beta.47:
+  version "0.0.1-beta.47"
+  resolved "https://registry.npmjs.org/shuvi/-/shuvi-0.0.1-beta.47.tgz#d84bc61335fcbcb0143fa247c972d0e77724ba0a"
+  integrity sha512-TFacr/NYbISYHDHXc0DsTqRa3gX/SUXu0v8K4N/TBIezv1mDm15XmdGX4Cdf8ljN25ffGfCrZZRVjvW3X9jA9A==
   dependencies:
-    "@shuvi/core" "^0.0.1-beta.46"
+    "@shuvi/core" "^0.0.1-beta.47"
     "@shuvi/hooks" "0.0.1-beta.38"
-    "@shuvi/runtime-core" "^0.0.1-beta.46"
-    "@shuvi/runtime-react" "^0.0.1-beta.46"
-    "@shuvi/shared" "^0.0.1-beta.46"
-    "@shuvi/toolpack" "^0.0.1-beta.46"
-    "@shuvi/types" "^0.0.1-beta.46"
-    "@shuvi/utils" "^0.0.1-beta.46"
+    "@shuvi/runtime-core" "^0.0.1-beta.47"
+    "@shuvi/runtime-react" "^0.0.1-beta.47"
+    "@shuvi/shared" "^0.0.1-beta.47"
+    "@shuvi/toolpack" "^0.0.1-beta.47"
+    "@shuvi/types" "^0.0.1-beta.47"
+    "@shuvi/utils" "^0.0.1-beta.47"
     commander "5.1.0"
     connect "3.7.0"
     cross-spawn "7.0.1"
