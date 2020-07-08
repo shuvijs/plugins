@@ -26,7 +26,6 @@
     "prebuild": "rimraf lib",
     "build": "tsc -p tsconfig.build.json"
   },
-  "gitHead": "91b0b8adeb1a802d5f5e6c4c4777507c7ccc07f9",
   "publishConfig": {
     "access": "public"
   }
