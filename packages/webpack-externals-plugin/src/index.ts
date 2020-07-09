@@ -4,7 +4,6 @@ import nodeExternals, {
   Options,
   WhitelistOption
 } from 'webpack-node-externals';
-import { ExternalsElement } from 'webpack';
 
 export default class WebpackExternalsPlugin {
   option: Options;
@@ -18,23 +17,25 @@ export default class WebpackExternalsPlugin {
 
     api.tap<APIHooks.IHookBundlerConfig>('bundler:configTarget', {
       name: 'webpackExternalPlugin',
-      fn: (chain, { name, mode }) => {
+      fn: (chain, { name, mode, helpers }) => {
         if (mode === 'development') {
           if (name === BUNDLER_TARGET_SERVER) {
-            const externals = chain.get('externals') as ExternalsElement;
-            chain.externals(
-              ([] as ExternalsElement[])
-                .concat(
-                  externals,
-                  nodeExternals({
-                    whitelist: ([/^@shuvi\/app/] as WhitelistOption[])
-                      .concat(whitelist)
-                      .filter(Boolean),
-                    ...otherOptions
-                  }) as ExternalsElement
-                )
-                .filter(Boolean)
-            );
+            helpers.addExternals(chain, (context, request, next) => {
+              const customCallback: any = (err: any, result: any) => {
+                if (!err && !result) {
+                  next(null, 'next');
+                } else {
+                  next(err, result);
+                }
+              };
+
+              nodeExternals({
+                whitelist: ([/^@shuvi\/app/] as WhitelistOption[])
+                  .concat(whitelist)
+                  .filter(Boolean),
+                ...otherOptions
+              })(context, request, customCallback);
+            });
           }
         }
         return chain;

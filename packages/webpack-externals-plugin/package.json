@@ -13,10 +13,10 @@
   },
   "main": "./lib/index.js",
   "peerDependencies": {
-    "shuvi": "^0.0.1-beta.47"
+    "shuvi": "^0.0.1-beta.48"
   },
   "devDependencies": {
-    "@shuvi/types": "^0.0.1-beta.47",
+    "@shuvi/types": "^0.0.1-beta.48",
     "@types/webpack-node-externals": "^1.7.1"
   },
   "scripts": {
