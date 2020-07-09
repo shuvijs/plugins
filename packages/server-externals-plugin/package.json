@@ -1,5 +1,5 @@
 {
-  "name": "@shuvi/plugin-webpack-externals",
+  "name": "@shuvi/plugin-server-externals",
   "version": "0.0.1-beta.3",
   "repository": {
     "type": "git",
