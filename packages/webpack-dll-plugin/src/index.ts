@@ -13,6 +13,7 @@ const DEFAULT_VENORS = [
 
 interface DllPluginOption {
   vendors: string[];
+  ignore: string[];
 }
 
 export default class WebpackDllPlugin {
@@ -24,7 +25,7 @@ export default class WebpackDllPlugin {
 
   apply(api: IApi) {
     const { rootDir } = api.paths;
-    const { vendors = [] } = this.options;
+    const { vendors = [], ignore = [] } = this.options;
     let dllFile: string;
 
     api.tap<APIHooks.IHookBundlerConfig>('bundler:configTarget', {
@@ -43,7 +44,9 @@ export default class WebpackDllPlugin {
                   inject: false,
                   context: rootDir,
                   entry: {
-                    dll: [...DEFAULT_VENORS, ...(vendors || [])]
+                    dll: [...DEFAULT_VENORS, ...(vendors || [])].filter(
+                      vendor => ignore.indexOf(vendor) >= 0
+                    )
                   },
                   config: {
                     mode,
