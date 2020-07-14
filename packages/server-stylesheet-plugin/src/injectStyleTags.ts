@@ -11,6 +11,7 @@ const injectStyleTags = (
     attrs: {},
     innerHTML: `</script>${sheet.getStyleTags()}`
   });
+  return documentProps;
 };
 
 export default injectStyleTags;
