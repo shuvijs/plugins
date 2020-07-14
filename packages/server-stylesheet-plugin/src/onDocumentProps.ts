@@ -1,14 +1,16 @@
 import { Runtime } from '@shuvi/types';
 import { ServerStylesheetAppContext } from './types';
 
-export default (
+const injectStyleTags = (
   documentProps: Runtime.IDocumentProps,
   appContext: ServerStylesheetAppContext
 ) => {
   const { sheet } = appContext;
-  documentProps.scriptTags.push({
+  documentProps.headTags.push({
     tagName: 'script',
     attrs: {},
-    innerHTML: `</script>${sheet.getStyleTags}`
+    innerHTML: `</script>${sheet.getStyleTags()}`
   });
 };
+
+export default injectStyleTags;
