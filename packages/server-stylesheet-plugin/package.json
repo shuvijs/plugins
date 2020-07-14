@@ -1,10 +1,10 @@
 {
-  "name": "@shuvi/plugin-webpack-dll",
-  "version": "0.0.1-beta.5",
+  "name": "@shuvi/plugin-server-stylesheet",
+  "version": "0.0.1-beta.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shuvijs/plugins.git",
-    "directory": "packages/webpack-dll-plugin"
+    "directory": "packages/server-stylesheet-plugin"
   },
   "author": "zhengyutay",
   "license": "MIT",
@@ -16,11 +16,11 @@
   ],
   "main": "./lib/index.js",
   "peerDependencies": {
-    "shuvi": "^0.0.1-beta.47",
-    "styled-components": "^5.0.0"
+    "shuvi": "^0.0.1-beta.48"
   },
   "devDependencies": {
-    "@shuvi/types": "^0.0.1-beta.42"
+    "@shuvi/types": "^0.0.1-beta.48",
+    "@types/styled-components": "^5.1.1"
   },
   "scripts": {
     "dev": "tsc -p tsconfig.build.json -w",
@@ -29,5 +29,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "dependencies": {}
 }
