@@ -1,14 +1,14 @@
 import React from 'react';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import { Runtime } from '@shuvi/types';
+import { ServerStylesheetAppContext } from './types';
 
 const serverStylesheetPlugin: Runtime.Plugin = tap => {
   if (typeof window === 'undefined') {
-    const sheet = new ServerStyleSheet();
-
     tap('createAppContext', {
       name: 'serverStyleSheet:injectSheetInstance',
       fn: (ctx: Runtime.ISeverAppContext) => {
+        const sheet = new ServerStyleSheet();
         ctx.sheet = sheet;
         return ctx;
       }
@@ -16,10 +16,10 @@ const serverStylesheetPlugin: Runtime.Plugin = tap => {
 
     tap('getAppComponent', {
       name: 'serverStyleSheet:wrapServerStyleSheet',
-      fn: (App: any, appContext: any) => {
+      fn: (App: any, appContext: ServerStylesheetAppContext) => {
         if (appContext.req) {
           const ServerStyleSheetComponent: any = (props: any) => (
-            <StyleSheetManager sheet={sheet.instance}>
+            <StyleSheetManager sheet={appContext.sheet.instance}>
               <App {...props} />
             </StyleSheetManager>
           );
