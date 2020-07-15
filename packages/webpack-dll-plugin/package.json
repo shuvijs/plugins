@@ -1,6 +1,6 @@
 {
   "name": "@shuvi/plugin-webpack-dll",
-  "version": "0.0.1-beta.6",
+  "version": "0.0.1-beta.5",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shuvijs/plugins.git",
@@ -16,8 +16,7 @@
   ],
   "main": "./lib/index.js",
   "peerDependencies": {
-    "shuvi": "^0.0.1-beta.47",
-    "styled-components": "^5.0.0"
+    "shuvi": "^0.0.1-beta.47"
   },
   "devDependencies": {
     "@shuvi/types": "^0.0.1-beta.42"
@@ -29,5 +28,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "autodll-webpack-plugin": "0.4.2"
   }
 }
