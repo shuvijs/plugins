@@ -45,7 +45,7 @@ export default class WebpackDllPlugin {
                   context: rootDir,
                   entry: {
                     dll: [...DEFAULT_VENORS, ...(vendors || [])].filter(
-                      vendor => ignore.indexOf(vendor) >= 0
+                      vendor => !ignore.includes(vendor)
                     )
                   },
                   config: {
