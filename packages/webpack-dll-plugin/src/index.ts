@@ -33,7 +33,6 @@ export default class WebpackDllPlugin {
       fn: (chain, { name, mode, webpack }) => {
         if (mode === 'development') {
           if (name === BUNDLER_TARGET_CLIENT) {
-            const resolveConfig = chain.toConfig().resolve!;
             chain
               .plugin('webpackDllPlugin')
               .before('private/build-manifest')
@@ -48,10 +47,12 @@ export default class WebpackDllPlugin {
                       vendor => !ignore.includes(vendor)
                     )
                   },
-                  config: {
-                    mode,
-                    resolve: resolveConfig,
-                    devtool: 'cheap-module-source-map'
+                  inherit: (webpackConfig: any) => {
+                    return {
+                      mode,
+                      resolve: webpackConfig.resolve,
+                      devtool: 'cheap-module-source-map'
+                    };
                   }
                 }
               ]);
