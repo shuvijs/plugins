@@ -30,9 +30,13 @@ export default class WebpackDllPlugin {
 
     api.tap<APIHooks.IHookBundlerConfig>('bundler:configTarget', {
       name: 'webpackDllPlugin',
+      stage: 999, // last to run
       fn: (chain, { name, mode, webpack }) => {
         if (mode === 'development') {
           if (name === BUNDLER_TARGET_CLIENT) {
+            const { DLL_IGNORE = '' } = process.env;
+            const packagesToIgnore = DLL_IGNORE.toLowerCase().split(',');
+            const aliasPackages = Object.keys(chain.resolve.alias.entries());
             chain
               .plugin('webpackDllPlugin')
               .before('private/build-manifest')
@@ -44,7 +48,12 @@ export default class WebpackDllPlugin {
                   context: rootDir,
                   entry: {
                     dll: [...DEFAULT_VENORS, ...(vendors || [])].filter(
-                      vendor => !ignore.includes(vendor)
+                      vendor =>
+                        ![
+                          ...ignore,
+                          ...aliasPackages,
+                          ...packagesToIgnore
+                        ].includes(vendor)
                     )
                   },
                   inherit: (webpackConfig: any) => {
