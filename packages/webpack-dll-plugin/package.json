@@ -16,7 +16,7 @@
   ],
   "main": "./lib/index.js",
   "peerDependencies": {
-    "shuvi": "^0.0.1-beta.47"
+    "shuvi": "0.0.1-rc.1"
   },
   "devDependencies": {
     "@shuvi/types": "^0.0.1-beta.42"

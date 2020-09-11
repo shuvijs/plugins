@@ -5,8 +5,8 @@ import { Compiler } from 'webpack';
 const DEFAULT_VENORS = [
   'react',
   'react-dom',
-  'react-router',
-  'react-router-dom',
+  '@shuvi/router',
+  '@shuvi/router-react',
   '@shuvi/runtime-react',
   '@shuvi/runtime-core'
 ];
