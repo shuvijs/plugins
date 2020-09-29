@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@shuvi/types": "^0.0.1-beta.48",
-    "@types/webpack-node-externals": "^1.7.1"
+    "@types/webpack-node-externals": "2.5.0"
   },
   "scripts": {
     "dev": "tsc -p tsconfig.build.json -w",
@@ -31,6 +31,6 @@
     "access": "public"
   },
   "dependencies": {
-    "webpack-node-externals": "1.7.2"
+    "webpack-node-externals": "2.5.2"
   }
 }

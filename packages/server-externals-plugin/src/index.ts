@@ -2,7 +2,7 @@ import { IApi, APIHooks } from '@shuvi/types';
 import { BUNDLER_TARGET_SERVER } from 'shuvi';
 import nodeExternals, {
   Options,
-  WhitelistOption
+  AllowlistOption
 } from 'webpack-node-externals';
 
 export default class WebpackExternalsPlugin {
@@ -13,7 +13,7 @@ export default class WebpackExternalsPlugin {
   }
 
   apply(api: IApi) {
-    const { whitelist = [], ...otherOptions } = this.option;
+    const { allowlist = [], ...otherOptions } = this.option;
 
     api.tap<APIHooks.IHookBundlerConfig>('bundler:configTarget', {
       name: 'webpackExternalPlugin',
@@ -29,8 +29,8 @@ export default class WebpackExternalsPlugin {
             };
 
             nodeExternals({
-              whitelist: ([/^@shuvi\/app/] as WhitelistOption[])
-                .concat(whitelist)
+              allowlist: ([/^@shuvi\/app/] as AllowlistOption[])
+                .concat(allowlist)
                 .filter(Boolean),
               ...otherOptions
             })(context, request, customCallback);
