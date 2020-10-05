@@ -29,7 +29,10 @@ export default class WebpackExternalsPlugin {
             };
 
             nodeExternals({
-              allowlist: ([/^@shuvi\/app/] as AllowlistOption[])
+              allowlist: ([
+                /^@shuvi\/app/,
+                /^@shuvi\/router-react/
+              ] as AllowlistOption[])
                 .concat(allowlist)
                 .filter(Boolean),
               ...otherOptions
