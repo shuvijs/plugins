@@ -21,7 +21,7 @@ export default class WebpackExternalsPlugin {
         if (name === BUNDLER_TARGET_SERVER) {
           helpers.addExternals(chain, (context, request, next) => {
             // support webpack5
-            if (typeof next === undefined) {
+            if (typeof next === 'undefined') {
               const {
                 context: webpack5Context,
                 request: webpack5Request
