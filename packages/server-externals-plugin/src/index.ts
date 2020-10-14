@@ -15,6 +15,16 @@ export default class WebpackExternalsPlugin {
   apply(api: IApi) {
     const { allowlist = [], ...otherOptions } = this.option;
 
+    const nodeExternalsFn = nodeExternals({
+      allowlist: ([
+        /^@shuvi\/app/,
+        /^@shuvi\/router-react/
+      ] as AllowlistOption[])
+        .concat(allowlist)
+        .filter(Boolean),
+      ...otherOptions
+    });
+
     api.tap<APIHooks.IHookBundlerConfig>('bundler:configTarget', {
       name: 'webpackExternalPlugin',
       fn: (chain, { name, helpers }) => {
@@ -38,16 +48,6 @@ export default class WebpackExternalsPlugin {
                 next(err, result);
               }
             };
-
-            const nodeExternalsFn = nodeExternals({
-              allowlist: ([
-                /^@shuvi\/app/,
-                /^@shuvi\/router-react/
-              ] as AllowlistOption[])
-                .concat(allowlist)
-                .filter(Boolean),
-              ...otherOptions
-            });
 
             nodeExternalsFn(context, request, customCallback);
           });
