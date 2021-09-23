@@ -18,7 +18,8 @@ export default class WebpackExternalsPlugin {
     const nodeExternalsFn = nodeExternals({
       allowlist: ([
         /^@shuvi\/app/,
-        /^@shuvi\/router-react/
+        /^@shuvi\/services/,
+        /^@shuvi\/router-react/,
       ] as AllowlistOption[])
         .concat(allowlist)
         .filter(Boolean),
